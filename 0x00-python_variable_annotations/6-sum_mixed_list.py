@@ -5,4 +5,4 @@ from typing import List
 
 def sum_mixed_list(mxd_list: List[int | float]) -> float:
     ''' returns the sum of a list '''
-    return sum(mxd_lis)
+    return float(sum(mxd_lis))
