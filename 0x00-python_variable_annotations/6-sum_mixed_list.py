@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-''' 6-sum_mixed_list.py '''
-from typing import List
+''' TODO project doc later '''
+from typing import List, Union
 
 
-def sum_mixed_list(mxd_list: List[int | float]) -> float:
+def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
     ''' returns the sum of a list '''
-    return float(sum(mxd_lis))
+    return float(sum(mxd_lst))

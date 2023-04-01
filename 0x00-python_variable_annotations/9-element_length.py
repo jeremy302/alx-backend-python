@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-''' 9-element_length.py '''
-from typing import Iterable
+''' TODO project doc later '''
+from typing import Iterable, List, Sequence, Tuple
 
 
 def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
-    ''' element length '''
+    ''' TODO project doc later '''
     return [(i, len(i)) for i in lst]

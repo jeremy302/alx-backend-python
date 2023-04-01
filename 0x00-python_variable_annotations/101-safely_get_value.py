@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-''' safely_get_value.py '''
+''' TODO project doc later '''
 from typing import Any, Mapping, Union, TypeVar
 
 
 T = TypeVar('T')
-DType = Union[T | None]
-RType = T | Any
+DType = Union[T, None]
+RType = Union[Any, T]
 
 
 def safely_get_value(dct: Mapping, key: Any, default: DType = None) -> RType:

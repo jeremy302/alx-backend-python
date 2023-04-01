@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-''' 8-make_multiplier.py '''
+''' TODO project doc later '''
 from typing import Callable
 
 
 def make_multiplier(multiplier: float) -> Callable[[float], float]:
-    def multiply(v: float) -> float:
-        return v * multiplier
-    return multiply
+    ''' TODO project doc later '''
+    return lambda x: x * multiplier

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-''' 7-to_kv.py '''
-from typing import Tuple
+''' TODO project doc later '''
+from typing import Tuple, Union
 
 
-def to_kv(k: str, v: int | float) -> Tuple[str, float]:
-    ''' sample procedure '''
-    return (k, v**2)
+def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
+    ''' TODO project doc later '''
+    return (k, float(v**2))
