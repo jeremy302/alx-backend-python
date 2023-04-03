@@ -3,7 +3,8 @@
 import asyncio
 import random
 
-async def wait_random(max_delay = 10):
+
+async def wait_random(max_delay=10):
     ''' waits a random amount of time '''
     duration = random.random() * max_delay
     await asyncio.sleep(duration)
