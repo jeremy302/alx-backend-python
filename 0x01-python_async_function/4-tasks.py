@@ -7,7 +7,7 @@ task_wait_random: Callable[[int], asyncio.Task] = __import__(
     '3-tasks').task_wait_random
 
 
-async def task_wait_n(n: int, max_delay: int):
+async def task_wait_n(n: int, max_delay: int) -> List[float]:
     ''' spaws `n` wait_random(max_delay), and returns the delays'''
     delays: List[float] = []
     tasks: List[asyncio.Task] = [task_wait_random(max_delay) for i in range(n)]
