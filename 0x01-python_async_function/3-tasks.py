@@ -9,4 +9,5 @@ wait_random: Callable[[int], Any] = __import__(
 
 
 def task_wait_random(max_delay: int) -> asyncio.Task:
+    ''' creates a task '''
     return asyncio.create_task(wait_random(max_delay))

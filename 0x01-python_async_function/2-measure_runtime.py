@@ -9,6 +9,7 @@ wait_n: Callable[[int, int], Any] = __import__(
 
 
 def measure_time(n: int, max_delay: int) -> float:
+    ''' measures time '''
     t: float = time.perf_counter()
     asyncio.run(wait_n(n, max_delay))
     return (time.perf_counter() - t)/n
