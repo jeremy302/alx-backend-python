@@ -9,7 +9,7 @@ async_comprehension: Any = __import__(
     '1-async_comprehension').async_comprehension
 
 
-async def measure_runtime() -> Any:
+async def measure_runtime() -> float:
     ''' measure runtime '''
     tasks: List[asyncio.Task] = [
         asyncio.create_task(async_comprehension()) for i in range(4)]
