@@ -17,12 +17,12 @@ from utils import memoize
 class TestAccessNestedMap(unittest.TestCase):
     ''' tests `access_nested_map` '''
     @parameterized.expand([
-        ("", {"a": 1}, ("a",), 1),
-        ("", {"a": {"b": 2}}, ("a",), {"b": 2}),
-        ("", {"a": {"b": 2}}, ("a", "b"), 2),
+        ({"a": 1}, ("a",), 1),
+        ({"a": {"b": 2}}, ("a",), {"b": 2}),
+        ({"a": {"b": 2}}, ("a", "b"), 2),
     ])
-    def test_access_nested_map(self, _, nested_map: Dict,
-                               path: Tuple[str], val: Any) -> None:
+    def test_access_nested_map(self, nested_map: Dict,
+                               path: Tuple[str], val: Union[Dict, int]) -> None:
         ''' test `access_nested_map`'''
         self.assertEqual(utils.access_nested_map(nested_map, path), val)
 
