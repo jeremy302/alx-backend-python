@@ -87,9 +87,8 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
             m = Mock()
             m.json = Mock(return_value=endpoints.get(url, None))
             return m
-        patch = mock.patch('requests.get', Mock(side_effect=json))
-        patch.start()
-        cls.get_patcher = patch
+        cls.get_patcher = patch('requests.get', side_effect=json)
+        cls.get_patcher.start()
 
     @classmethod
     def tearDownClass(cls) -> None:
