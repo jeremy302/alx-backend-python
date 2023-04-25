@@ -19,11 +19,11 @@ class TestGithubOrgClient(unittest.TestCase):
     ''' test github org client '''
 
     @parameterized.expand([
-        ('', 'google', {'foo': 'bar'}),
-        ('', 'abc', {'bar': 'foo'})
+        ('google', {'foo': 'bar'}),
+        ('abc', {'bar': 'foo'})
     ])
     @unittest.mock.patch('client.get_json')
-    def test_org(self, _: str, org_name: str, org_res: Dict, proc) -> None:
+    def test_org(self, org_name: str, org_res: Dict, proc) -> None:
         ''' test org '''
         proc.return_value = org_res
         obj = client.GithubOrgClient(org_name)
@@ -56,11 +56,11 @@ class TestGithubOrgClient(unittest.TestCase):
             prop.assert_called_once_with()
 
     @parameterized.expand([
-        ('', {"license": {"key": "my_license"}}, "my_license", True),
-        ('', {"license": {"key": "other_license"}}, "my_license", False),
+        ({"license": {"key": "my_license"}}, "my_license", True),
+        ({"license": {"key": "other_license"}}, "my_license", False),
     ])
-    def test_has_license(self, _: str,
-                         repo: Dict, license_key: str, res: bool) -> None:
+    def test_has_license(self, repo: Dict,
+                         license_key: str, res: bool) -> None:
         ''' test has license '''
         self.assertEqual(
             client.GithubOrgClient.has_license(repo, license_key), res)

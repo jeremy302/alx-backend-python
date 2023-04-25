@@ -22,15 +22,16 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": {"b": 2}}, ("a", "b"), 2),
     ])
     def test_access_nested_map(self, nested_map: Dict,
-                               path: Tuple[str], val: Union[Dict, int]) -> None:
+                               path: Tuple[str],
+                               val: Union[Dict, int]) -> None:
         ''' test `access_nested_map`'''
         self.assertEqual(utils.access_nested_map(nested_map, path), val)
 
     @parameterized.expand([
-        ("", {}, ("a",)),
-        ("", {"a": 1}, ("a", "b")),
+        ({}, ("a",)),
+        ({"a": 1}, ("a", "b")),
     ])
-    def test_access_nested_map_exception(self, _: str, nested_map: Dict,
+    def test_access_nested_map_exception(self,nested_map: Dict,
                                          path: Any) -> None:
         ''' test `access_nested_map` exception '''
         with self.assertRaises(KeyError):
@@ -40,10 +41,10 @@ class TestAccessNestedMap(unittest.TestCase):
 class TestGetJson(unittest.TestCase):
     ''' tests `get_json` '''
     @parameterized.expand([
-        ("", "http://example.com", {"payload": True}),
-        ("", "http://holberton.io", {"payload": False})
+        ("http://example.com", {"payload": True}),
+        ("http://holberton.io", {"payload": False})
     ])
-    def test_get_json(self, _, test_url: str, test_payload: Dict) -> None:
+    def test_get_json(self, test_url: str, test_payload: Dict) -> None:
         ''' tests `get_json` '''
         mock = Mock()
         mock.json = Mock(return_value=test_payload)
