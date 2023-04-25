@@ -4,7 +4,7 @@ from typing import Dict
 
 import unittest
 from unittest import mock
-from unittest.mock import Mock, PropertyMock
+from unittest.mock import Mock, PropertyMock, patch
 
 import requests
 
@@ -22,7 +22,7 @@ class TestGithubOrgClient(unittest.TestCase):
         ('google', {'foo': 'bar'}),
         ('abc', {'bar': 'foo'})
     ])
-    @unittest.mock.patch('client.get_json')
+    @patch('client.get_json')
     def test_org(self, org_name: str, org_res: Dict, proc) -> None:
         ''' test org '''
         proc.return_value = org_res
@@ -41,7 +41,7 @@ class TestGithubOrgClient(unittest.TestCase):
             obj = client.GithubOrgClient('foo')
             self.assertEqual(obj._public_repos_url, 'abc123')
 
-    @unittest.mock.patch('client.get_json')
+    @patch('client.get_json')
     def test_public_repos(self, proc: Mock) -> None:
         ''' test public repos '''
         url = 'http://foo.bar'
